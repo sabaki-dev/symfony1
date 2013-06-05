@@ -1,10 +1,10 @@
 {
-    "name": "lexpress/symfony1",
+    "name": "sabaki-dev/symfony1",
     "description": "Fork of symfony 1.4 with dic, form enhancements, latest swiftmailer and better performance",
     "license": "MIT",
     "require": {
         "swiftmailer/swiftmailer": "4.2.*",
-        "lexpress/doctrine1": "*"
+        "sabaki-dev/doctrine1": "dev-master"
     },
     "type": "library",
     "autoload": {
