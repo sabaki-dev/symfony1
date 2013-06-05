@@ -450,6 +450,7 @@ class sfContext implements ArrayAccess
       $this->factories['serviceContainer']->setService('sf_event_dispatcher', $this->configuration->getEventDispatcher());
       $this->factories['serviceContainer']->setService('sf_formatter', new sfFormatter());
       $this->factories['serviceContainer']->setService('sf_user', $this->getUser());
+      $this->factories['serviceContainer']->setService('sf_i18n', $this->getI18N());
     }
 
     return $this->factories['serviceContainer'];
@@ -587,6 +588,7 @@ class sfContext implements ArrayAccess
     $parameters['sf_params']   = $this->factories['request']->getParameterHolder();
     $parameters['sf_response'] = $this->factories['response'];
     $parameters['sf_user']     = $this->factories['user'];
+    $parameters['sf_i18n']     = $this->factories['i18n'];
 
     return $parameters;
   }
