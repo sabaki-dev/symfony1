@@ -122,7 +122,7 @@ EOF;
 
         // clear global cache
         if (null === $options['app'] && 'all' == $options['type']) {
-            $this->getFilesystem()->remove(sfFinder::type('file')->discard('.sf')->in(sfConfig::get('sf_cache_dir')));
+            $this->getFilesystem()->remove(sfFinder::type('file')->discard('.*')->in(sfConfig::get('sf_cache_dir')));
         }
     }
 
