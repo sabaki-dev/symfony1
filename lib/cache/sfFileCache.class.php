@@ -306,7 +306,10 @@ class sfFileCache extends sfCache
       }
     }
 
-    chmod($path, 0666);
+    if (file_exists($path)) {
+      chmod($path, 0666);  
+    }
+    
     umask($current_umask);
 
     return true;
