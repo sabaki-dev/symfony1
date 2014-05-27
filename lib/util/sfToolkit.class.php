@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
  * This file is part of the symfony package.
@@ -348,7 +348,9 @@ class sfToolkit
    */
   public static function replaceConstants($value)
   {
-    return is_string($value) ? preg_replace_callback('/%(.+?)%/', create_function('$v', 'return sfConfig::has(strtolower($v[1])) ? sfConfig::get(strtolower($v[1])) : "%{$v[1]}%";'), $value) : $value;
+    return is_string($value) ? preg_replace_callback('/%(.+?)%/', function ($v) {
+      return sfConfig::has(strtolower($v[1])) ? sfConfig::get(strtolower($v[1])) : '%'.$v[1].'%';
+    }, $value) : $value;
   }
 
   /**

@@ -1,3 +1,4 @@
+.idea
 /test/functional/fixtures/cache
 /test/functional/fixtures/log
 /lib/plugins/sfDoctrinePlugin/test/functional/fixtures/lib/*/doctrine/base/
