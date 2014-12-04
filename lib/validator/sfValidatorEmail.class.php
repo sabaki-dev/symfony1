@@ -28,5 +28,22 @@ class sfValidatorEmail extends sfValidatorRegex
     parent::configure($options, $messages);
 
     $this->setOption('pattern', self::REGEX_EMAIL);
+    $this->addOption('check_domain', false);
+  }
+
+  protected function doClean($value)
+  {
+    $clean = parent::doClean($value);
+
+    if ($this->getOption('check_domain') && function_exists('checkdnsrr'))
+    {
+      $tokens = explode('@', $clean);
+      if (!checkdnsrr($tokens[1], 'MX') && !checkdnsrr($tokens[1], 'A'))
+      {
+        throw new sfValidatorError($this, 'invalid', array('value' => $clean));
+      }
+    }
+
+    return $clean;
   }
 }
