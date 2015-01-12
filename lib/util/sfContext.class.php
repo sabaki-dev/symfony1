@@ -451,6 +451,11 @@ class sfContext implements ArrayAccess
       $this->factories['serviceContainer']->setService('sf_formatter', new sfFormatter());
       $this->factories['serviceContainer']->setService('sf_user', $this->getUser());
       $this->factories['serviceContainer']->setService('sf_i18n', $this->getI18N());
+
+      if (isset($this->factories['databaseManager']))
+      {
+        $this->factories['serviceContainer']->setService('databaseManager', $this->factories['databaseManager']);
+      }
     }
 
     return $this->factories['serviceContainer'];
