@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "swiftmailer/swiftmailer": "4.2.*",
-        "sabaki-dev/doctrine1": "dev-master"
+        "sabaki-dev/doctrine1": "~1.2"
     },
     "type": "library",
     "autoload": {
