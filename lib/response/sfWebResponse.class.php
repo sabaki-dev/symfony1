@@ -181,7 +181,7 @@ class sfWebResponse extends sfResponse
 
     $this->cookies[$name] = array(
       'name'     => $name,
-      'value'    => base64_encode($value),
+      'value'    => $value,
       'expire'   => $expire,
       'path'     => $path,
       'domain'   => $domain,
