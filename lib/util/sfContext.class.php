@@ -456,6 +456,11 @@ class sfContext implements ArrayAccess
       {
         $this->factories['serviceContainer']->setService('databaseManager', $this->factories['databaseManager']);
       }
+      
+      if (file_exists($file = \sfConfig::get('sf_config_dir').DIRECTORY_SEPARATOR.'parameters.ini'))
+      {
+        $this->factories['serviceContainer']->addParameters(parse_ini_file($file, true));
+      }
     }
 
     return $this->factories['serviceContainer'];
